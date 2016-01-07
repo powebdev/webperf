@@ -49,6 +49,7 @@ gulp.task('style', function() {
 	return merge(main_site, pizza_site);
 });
 
+// Include css and js in HTML then minify HTML
 gulp.task('prod_dev_switch', function() {
 	var css_min = fs.readFileSync('src/css/min/style.min.css', 'utf8');
 	var main_site = gulp.src('src/*.html')
@@ -85,5 +86,4 @@ gulp.task('prod_dev_switch', function() {
 
 
  // Default Task
-gulp.task('default', ['scripts', 'style']);
-gulp.task('default', ['prod_dev_switch']);
+gulp.task('default', ['scripts', 'style', 'prod_dev_switch']);
