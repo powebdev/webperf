@@ -84,19 +84,6 @@ gulp.task('prod_dev_switch', function() {
 });
 
 
-// Image Optimization
-gulp.task('images', function() {
-	var main_site = gulp.src('src/images/**/*')
-		.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-		.pipe(gulp.dest('build/images'));
-
-	var pizza_site = gulp.src('src/views/images/**/*')
-		.pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-		.pipe(gulp.dest('build/views/images'));
-
-	return merge(main_site, pizza_site);
-});
-
  // Default Task
 gulp.task('default', ['scripts', 'style']);
 gulp.task('default', ['prod_dev_switch']);
